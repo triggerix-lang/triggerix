@@ -1,7 +1,7 @@
 {
   "name": "@triggerix/editor",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Headless editor core for Triggerix - descriptor-based slot/tool system",
   "license": "MIT",
   "publishConfig": {

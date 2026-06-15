@@ -1,7 +1,7 @@
 {
   "name": "@triggerix/schema",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "packageManager": "pnpm@11.6.0",
   "description": "Schema builder for Triggerix",
   "license": "MIT",
