@@ -1,0 +1,32 @@
+{
+  "name": "triggerix",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@11.5.1",
+  "description": "A language-agnostic trigger schema for defining events, conditions and actions",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "stub": "unbuild --stub",
+    "build": "unbuild"
+  },
+  "dependencies": {
+    "@triggerix/core": "workspace:*",
+    "@triggerix/json-schema": "workspace:*",
+    "@triggerix/runtime": "workspace:*",
+    "@triggerix/schema": "workspace:*",
+    "@triggerix/validator": "workspace:*"
+  }
+}

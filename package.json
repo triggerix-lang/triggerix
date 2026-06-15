@@ -1,0 +1,23 @@
+{
+  "name": "@triggerix/monorepo",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@11.5.1",
+  "description": "A language-agnostic trigger schema for defining events, conditions and actions",
+  "license": "MIT",
+  "scripts": {
+    "stub": "pnpm -r run stub",
+    "build": "pnpm -r run build",
+    "lint": "eslint --cache",
+    "release": "bumpp -r"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.13.2",
+    "bumpp": "^11.1.0",
+    "defu": "^6.1.7",
+    "eslint": "^10.4.1",
+    "typescript": "^6.0.3",
+    "unbuild": "^3.6.1"
+  }
+}

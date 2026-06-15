@@ -1,0 +1,28 @@
+{
+  "name": "@triggerix/validator",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@11.5.1",
+  "description": "Rule validator for Triggerix",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "stub": "unbuild --stub",
+    "build": "unbuild"
+  },
+  "dependencies": {
+    "@triggerix/core": "workspace:*"
+  }
+}
