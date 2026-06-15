@@ -3,6 +3,10 @@
   "type": "module",
   "version": "0.0.0",
   "description": "Headless editor core for Triggerix - descriptor-based slot/tool system",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

@@ -5,6 +5,9 @@
   "packageManager": "pnpm@11.6.0",
   "description": "JSON Schema generator for Triggerix",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

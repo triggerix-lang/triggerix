@@ -6,6 +6,9 @@
   "packageManager": "pnpm@11.6.0",
   "description": "A language-agnostic trigger schema for defining events, conditions and actions",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "stub": "pnpm -r run stub",
     "build": "pnpm -r run build",

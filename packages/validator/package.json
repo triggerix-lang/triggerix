@@ -5,6 +5,9 @@
   "packageManager": "pnpm@11.6.0",
   "description": "Rule validator for Triggerix",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

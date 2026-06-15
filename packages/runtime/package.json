@@ -5,6 +5,9 @@
   "packageManager": "pnpm@11.6.0",
   "description": "Reference runtime implementation for Triggerix",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
