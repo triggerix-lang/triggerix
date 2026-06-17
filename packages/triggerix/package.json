@@ -2,7 +2,7 @@
   "name": "triggerix",
   "type": "module",
   "version": "0.0.4",
-  "packageManager": "pnpm@11.6.0",
+  "packageManager": "pnpm@11.7.0",
   "description": "A language-agnostic trigger schema for defining events, conditions and actions",
   "license": "MIT",
   "homepage": "https://github.com/triggerix-lang/triggerix#readme",

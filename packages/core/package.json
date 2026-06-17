@@ -2,7 +2,7 @@
   "name": "@triggerix/core",
   "type": "module",
   "version": "0.0.4",
-  "packageManager": "pnpm@11.6.0",
+  "packageManager": "pnpm@11.7.0",
   "description": "Core type definitions for Triggerix",
   "license": "MIT",
   "homepage": "https://github.com/triggerix-lang/triggerix#readme",
