@@ -1,14 +1,14 @@
 {
-  "name": "@triggerix/editor",
+  "name": "@triggerix/registry",
   "type": "module",
   "version": "0.0.5",
-  "description": "Generic editor infrastructure for Triggerix - shared base for all editing modes",
+  "description": "Type-safe registry for event/action/condition definitions",
   "license": "MIT",
   "homepage": "https://github.com/triggerix-lang/triggerix#readme",
   "repository": {
     "type": "git",
     "url": "git@github.com:triggerix-lang/triggerix.git",
-    "directory": "packages/editor"
+    "directory": "packages/registry"
   },
   "bugs": {
     "url": "https://github.com/triggerix-lang/triggerix/issues"
@@ -31,10 +31,6 @@
   ],
   "scripts": {
     "build": "unbuild"
-  },
-  "dependencies": {
-    "@triggerix/core": "workspace:*",
-    "@triggerix/registry": "workspace:*"
   },
   "devDependencies": {
     "unbuild": "^3.6.1"

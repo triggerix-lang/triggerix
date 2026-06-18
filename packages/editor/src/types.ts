@@ -17,15 +17,6 @@ export interface Editor<TState = unknown> {
 }
 
 /**
- * Base definition for registry items.
- */
-export interface BaseItemDef {
-  id: string
-  label: string
-  type?: string
-}
-
-/**
  * Preset interface for batch-registering definitions.
  */
 export interface Preset<TEditor extends Editor> {

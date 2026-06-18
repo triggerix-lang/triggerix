@@ -1,3 +1,4 @@
 export { ObservableState } from './observableState'
-export { BaseRegistry } from './registry'
-export type { BaseItemDef, Editor, Preset } from './types'
+export type { Editor, Preset } from './types'
+export { BaseRegistry } from '@triggerix/registry'
+export type { BaseItemDef } from '@triggerix/registry'

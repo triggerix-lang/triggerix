@@ -12,6 +12,7 @@
       "@triggerix/validator": ["./packages/validator/src/index.ts"],
       "@triggerix/json-schema": ["./packages/json-schema/src/index.ts"],
       "@triggerix/runtime": ["./packages/runtime/src/index.ts"],
+      "@triggerix/registry": ["./packages/registry/src/index.ts"],
       "@triggerix/editor": ["./packages/editor/src/index.ts"]
     },
     "resolveJsonModule": true,

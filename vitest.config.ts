@@ -12,6 +12,7 @@ export default defineConfig({
       '@triggerix/validator': resolve(__dirname, 'packages/validator/src/index.ts'),
       '@triggerix/json-schema': resolve(__dirname, 'packages/json-schema/src/index.ts'),
       '@triggerix/runtime': resolve(__dirname, 'packages/runtime/src/index.ts'),
+      '@triggerix/registry': resolve(__dirname, 'packages/registry/src/index.ts'),
       '@triggerix/editor': resolve(__dirname, 'packages/editor/src/index.ts')
     }
   }

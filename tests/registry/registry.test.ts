@@ -1,4 +1,4 @@
-import { BaseRegistry } from '@triggerix/editor'
+import { BaseRegistry } from '@triggerix/registry'
 import { describe, expect, it } from 'vitest'
 
 describe('baseRegistry', () => {
