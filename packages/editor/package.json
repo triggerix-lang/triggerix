@@ -1,7 +1,7 @@
 {
   "name": "@triggerix/editor",
   "type": "module",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Generic editor infrastructure for Triggerix - shared base for all editing modes",
   "license": "MIT",
   "homepage": "https://github.com/triggerix-lang/triggerix#readme",

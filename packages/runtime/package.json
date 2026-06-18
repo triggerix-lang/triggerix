@@ -1,7 +1,7 @@
 {
   "name": "@triggerix/runtime",
   "type": "module",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "packageManager": "pnpm@11.7.0",
   "description": "Reference runtime implementation for Triggerix",
   "license": "MIT",
