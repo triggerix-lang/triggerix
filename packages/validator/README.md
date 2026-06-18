@@ -15,6 +15,7 @@ This repository is a [pnpm workspace](https://pnpm.io/workspaces) containing the
 | [`@triggerix/json-schema`](./packages/json-schema) | JSON Schema generator for rule definitions. |
 | [`@triggerix/validator`](./packages/validator) | Rule validator that checks rules against the schema. |
 | [`@triggerix/runtime`](./packages/runtime) | Reference runtime implementation that executes rules. |
+| [`@triggerix/registry`](./packages/registry) | Type-safe registry for event/action/condition definitions. |
 | [`@triggerix/editor`](./packages/editor) | Headless editor core with a descriptor-based slot/tool system. |
 | [`triggerix`](./packages/triggerix) | The all-in-one aggregate package re-exporting the suite. |
 
