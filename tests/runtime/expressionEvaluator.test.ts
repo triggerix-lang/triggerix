@@ -104,18 +104,6 @@ describe('evaluateExprNode compare', () => {
   it('lte', () => {
     expect(evaluateExprNode({ type: 'compare', operator: 'lte', left: 2, right: 2 }, ctx, emptyFns)).toBe(true)
   })
-
-  it('contains', () => {
-    expect(evaluateExprNode({ type: 'compare', operator: 'contains', left: 'hello world', right: 'world' }, ctx, emptyFns)).toBe(true)
-  })
-
-  it('startsWith', () => {
-    expect(evaluateExprNode({ type: 'compare', operator: 'startsWith', left: 'hello', right: 'he' }, ctx, emptyFns)).toBe(true)
-  })
-
-  it('endsWith', () => {
-    expect(evaluateExprNode({ type: 'compare', operator: 'endsWith', left: 'hello', right: 'lo' }, ctx, emptyFns)).toBe(true)
-  })
 })
 
 describe('evaluateExprNode logical', () => {

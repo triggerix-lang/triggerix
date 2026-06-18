@@ -1,7 +1,7 @@
 /**
  * Valid operators for Condition evaluation (single source of truth)
  */
-export const VALID_OPERATORS = ['eq', 'neq', 'gt', 'gte', 'lt', 'lte', 'contains', 'startsWith', 'endsWith', 'exists'] as const
+export const VALID_OPERATORS = ['eq', 'neq', 'gt', 'gte', 'lt', 'lte', 'exists'] as const
 
 /**
  * Binary arithmetic operators
@@ -16,7 +16,7 @@ export const UNARY_OPERATORS = ['-', '!'] as const
 /**
  * Compare operators (subset of VALID_OPERATORS, excluding 'exists')
  */
-export const COMPARE_OPERATORS = ['eq', 'neq', 'gt', 'gte', 'lt', 'lte', 'contains', 'startsWith', 'endsWith'] as const
+export const COMPARE_OPERATORS = ['eq', 'neq', 'gt', 'gte', 'lt', 'lte'] as const
 
 /**
  * Logical operators / ConditionGroup types

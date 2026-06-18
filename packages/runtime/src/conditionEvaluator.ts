@@ -58,12 +58,6 @@ export function evaluateCondition(condition: Condition, context: RuntimeContext,
       return typeof left === 'number' && typeof right === 'number' && left < right
     case 'lte':
       return typeof left === 'number' && typeof right === 'number' && left <= right
-    case 'contains':
-      return typeof left === 'string' && typeof right === 'string' && left.includes(right)
-    case 'startsWith':
-      return typeof left === 'string' && typeof right === 'string' && left.startsWith(right)
-    case 'endsWith':
-      return typeof left === 'string' && typeof right === 'string' && left.endsWith(right)
     default:
       return false
   }

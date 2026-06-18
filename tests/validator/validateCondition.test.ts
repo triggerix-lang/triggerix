@@ -22,7 +22,7 @@ describe('validateCondition', () => {
     })
 
     it('should accept all known operators', () => {
-      const operators = ['eq', 'neq', 'gt', 'gte', 'lt', 'lte', 'contains', 'startsWith', 'endsWith']
+      const operators = ['eq', 'neq', 'gt', 'gte', 'lt', 'lte']
       for (const op of operators) {
         const result = validateCondition({ left: 1, operator: op, right: 1 })
         expect(result.valid).toBe(true)

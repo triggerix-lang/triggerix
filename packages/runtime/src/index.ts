@@ -1,4 +1,6 @@
 export { ActionRegistry } from './actionRegistry'
+export { compare } from './compare'
+export type { CompareBuilder, CompareOperators, CompareRight } from './compare'
 export { evaluateCondition, evaluateConditionGroup, resolveValue } from './conditionEvaluator'
 export { createRuntime } from './createRuntime'
 export type { TriggerixRuntime } from './createRuntime'

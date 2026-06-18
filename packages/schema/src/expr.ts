@@ -35,7 +35,7 @@ export function unary(operator: ExprUnary['operator'], operand: ExprOperand): Ex
 /**
  * Comparison operation
  */
-export function compare(operator: ExprCompare['operator'], left: ExprOperand, right: ExprOperand): ExprCompare {
+export function exprCompare(operator: ExprCompare['operator'], left: ExprOperand, right: ExprOperand): ExprCompare {
   return { type: 'compare', operator, left, right }
 }
 

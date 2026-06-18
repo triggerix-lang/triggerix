@@ -20,8 +20,9 @@ export interface Editor<TState = unknown> {
  * Base definition for registry items.
  */
 export interface BaseItemDef {
-  type: string
+  id: string
   label: string
+  type?: string
 }
 
 /**

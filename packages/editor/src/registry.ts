@@ -13,27 +13,27 @@ export class BaseRegistry<
   protected conditions = new Map<string, TConditionDef>()
 
   registerEvent(def: TEventDef): void {
-    this.events.set(def.type, def)
+    this.events.set(def.id, def)
   }
 
   registerAction(def: TActionDef): void {
-    this.actions.set(def.type, def)
+    this.actions.set(def.id, def)
   }
 
   registerCondition(def: TConditionDef): void {
-    this.conditions.set(def.type, def)
+    this.conditions.set(def.id, def)
   }
 
-  getEvent(type: string): TEventDef | undefined {
-    return this.events.get(type)
+  getEvent(id: string): TEventDef | undefined {
+    return this.events.get(id)
   }
 
-  getAction(type: string): TActionDef | undefined {
-    return this.actions.get(type)
+  getAction(id: string): TActionDef | undefined {
+    return this.actions.get(id)
   }
 
-  getCondition(type: string): TConditionDef | undefined {
-    return this.conditions.get(type)
+  getCondition(id: string): TConditionDef | undefined {
+    return this.conditions.get(id)
   }
 
   getEvents(): TEventDef[] {

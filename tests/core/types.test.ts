@@ -55,9 +55,6 @@ describe('operator constants', () => {
     expect(VALID_OPERATORS).toContain('gte')
     expect(VALID_OPERATORS).toContain('lt')
     expect(VALID_OPERATORS).toContain('lte')
-    expect(VALID_OPERATORS).toContain('contains')
-    expect(VALID_OPERATORS).toContain('startsWith')
-    expect(VALID_OPERATORS).toContain('endsWith')
     expect(VALID_OPERATORS).toContain('exists')
   })
 

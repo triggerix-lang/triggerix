@@ -86,21 +86,6 @@ describe('evaluateCondition', () => {
     expect(evaluateCondition({ left: 3, operator: 'lte', right: 2 }, ctx)).toBe(false)
   })
 
-  it('contains operator', () => {
-    expect(evaluateCondition({ left: 'hello world', operator: 'contains', right: 'world' }, ctx)).toBe(true)
-    expect(evaluateCondition({ left: 'hello world', operator: 'contains', right: 'foo' }, ctx)).toBe(false)
-  })
-
-  it('startsWith operator', () => {
-    expect(evaluateCondition({ left: 'hello world', operator: 'startsWith', right: 'hello' }, ctx)).toBe(true)
-    expect(evaluateCondition({ left: 'hello world', operator: 'startsWith', right: 'world' }, ctx)).toBe(false)
-  })
-
-  it('endsWith operator', () => {
-    expect(evaluateCondition({ left: 'hello world', operator: 'endsWith', right: 'world' }, ctx)).toBe(true)
-    expect(evaluateCondition({ left: 'hello world', operator: 'endsWith', right: 'hello' }, ctx)).toBe(false)
-  })
-
   it('exists returns true when value exists', () => {
     const c = makeContext({ name: 'alice' })
     expect(evaluateCondition({ left: { $ref: 'payload.name' }, operator: 'exists' }, c)).toBe(true)

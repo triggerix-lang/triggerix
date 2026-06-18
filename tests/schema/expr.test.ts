@@ -1,9 +1,9 @@
 import {
   binary,
   call,
-  compare,
   concat,
   expr,
+  exprCompare,
   logical,
   ternary,
   unary
@@ -33,8 +33,8 @@ describe('expression builders', () => {
     })
   })
 
-  it('compare builds a comparison node', () => {
-    expect(compare('eq', 'a', 'b')).toEqual({
+  it('exprCompare builds a comparison node', () => {
+    expect(exprCompare('eq', 'a', 'b')).toEqual({
       type: 'compare',
       operator: 'eq',
       left: 'a',

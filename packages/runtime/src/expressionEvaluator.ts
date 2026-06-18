@@ -94,9 +94,6 @@ export function evaluateExprNode(
         case 'gte': return (left as number) >= (right as number)
         case 'lt': return (left as number) < (right as number)
         case 'lte': return (left as number) <= (right as number)
-        case 'contains': return String(left).includes(String(right))
-        case 'startsWith': return String(left).startsWith(String(right))
-        case 'endsWith': return String(left).endsWith(String(right))
       }
       break
     }
