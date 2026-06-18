@@ -1,7 +1,7 @@
 {
   "name": "@triggerix/monorepo",
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": true,
   "packageManager": "pnpm@11.7.0",
   "description": "A language-agnostic trigger schema for defining events, conditions and actions",
