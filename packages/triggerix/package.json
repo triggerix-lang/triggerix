@@ -5,14 +5,14 @@
   "packageManager": "pnpm@11.7.0",
   "description": "A language-agnostic trigger schema for defining events, conditions and actions",
   "license": "MIT",
-  "homepage": "https://github.com/triggerix-lang/triggerix#readme",
+  "homepage": "https://github.com/triggerix-collective/triggerix#readme",
   "repository": {
     "type": "git",
-    "url": "git@github.com:triggerix-lang/triggerix.git",
+    "url": "git@github.com:triggerix-collective/triggerix.git",
     "directory": "packages/triggerix"
   },
   "bugs": {
-    "url": "https://github.com/triggerix-lang/triggerix/issues"
+    "url": "https://github.com/triggerix-collective/triggerix/issues"
   },
   "publishConfig": {
     "access": "public"

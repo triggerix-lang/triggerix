@@ -4,14 +4,14 @@
   "version": "0.0.7",
   "description": "Generic editor infrastructure for Triggerix - shared base for all editing modes",
   "license": "MIT",
-  "homepage": "https://github.com/triggerix-lang/triggerix#readme",
+  "homepage": "https://github.com/triggerix-collective/triggerix#readme",
   "repository": {
     "type": "git",
-    "url": "git@github.com:triggerix-lang/triggerix.git",
+    "url": "git@github.com:triggerix-collective/triggerix.git",
     "directory": "packages/editor"
   },
   "bugs": {
-    "url": "https://github.com/triggerix-lang/triggerix/issues"
+    "url": "https://github.com/triggerix-collective/triggerix/issues"
   },
   "publishConfig": {
     "access": "public"
