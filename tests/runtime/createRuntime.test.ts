@@ -1,21 +1,21 @@
-import type { Rule } from '@triggerix/core'
+import type { Trigger } from '@triggerix/core'
 import { createRuntime } from '@triggerix/runtime'
 import { describe, expect, it, vi } from 'vitest'
 
 describe('createRuntime - basic flow', () => {
-  it('registerEvent → registerAction → addRule → emit invokes handler', async () => {
+  it('registerEvent → registerAction → addTrigger → emit invokes handler', async () => {
     const handler = vi.fn()
     const runtime = createRuntime()
 
     runtime.registerEvent('user.login')
     runtime.registerAction('log', handler)
 
-    const rule: Rule = {
-      id: 'r1',
+    const trigger: Trigger = {
+      id: 't1',
       event: { type: 'user.login' },
       actions: [{ type: 'log', params: { msg: 'hi' } }]
     }
-    runtime.addRule(rule)
+    runtime.addTrigger(trigger)
 
     await runtime.emit('user.login')
 
@@ -32,8 +32,8 @@ describe('createRuntime - condition filtering', () => {
     runtime.registerEvent('order.created')
     runtime.registerAction('notify', handler)
 
-    runtime.addRule({
-      id: 'r1',
+    runtime.addTrigger({
+      id: 't1',
       event: { type: 'order.created' },
       conditions: {
         type: 'and',
@@ -52,16 +52,16 @@ describe('createRuntime - condition filtering', () => {
   })
 })
 
-describe('createRuntime - removeRule', () => {
-  it('removed rule is no longer triggered', async () => {
+describe('createRuntime - removeTrigger', () => {
+  it('removed trigger is no longer triggered', async () => {
     const handler = vi.fn()
     const runtime = createRuntime()
 
     runtime.registerEvent('e')
     runtime.registerAction('a', handler)
 
-    runtime.addRule({
-      id: 'r1',
+    runtime.addTrigger({
+      id: 't1',
       event: { type: 'e' },
       actions: [{ type: 'a' }]
     })
@@ -69,14 +69,14 @@ describe('createRuntime - removeRule', () => {
     await runtime.emit('e')
     expect(handler).toHaveBeenCalledTimes(1)
 
-    runtime.removeRule('r1')
+    runtime.removeTrigger('t1')
     await runtime.emit('e')
     expect(handler).toHaveBeenCalledTimes(1)
   })
 })
 
-describe('createRuntime - listEvents / listActions / listRules', () => {
-  it('lists registered events, actions and rules', () => {
+describe('createRuntime - listEvents / listActions / listTriggers', () => {
+  it('lists registered events, actions and triggers', () => {
     const runtime = createRuntime()
 
     runtime.registerEvent('e1')
@@ -84,17 +84,17 @@ describe('createRuntime - listEvents / listActions / listRules', () => {
     runtime.registerAction('a1', vi.fn())
     runtime.registerAction('a2', vi.fn())
 
-    const rule: Rule = {
-      id: 'r1',
+    const trigger: Trigger = {
+      id: 't1',
       event: { type: 'e1' },
       actions: [{ type: 'a1' }]
     }
-    runtime.addRule(rule)
+    runtime.addTrigger(trigger)
 
     expect(runtime.listEvents()).toEqual(expect.arrayContaining(['e1', 'e2']))
     expect(runtime.listActions()).toEqual(expect.arrayContaining(['a1', 'a2']))
-    expect(runtime.listRules()).toHaveLength(1)
-    expect(runtime.listRules()[0].id).toBe('r1')
+    expect(runtime.listTriggers()).toHaveLength(1)
+    expect(runtime.listTriggers()[0].id).toBe('t1')
   })
 })
 
@@ -107,8 +107,8 @@ describe('createRuntime - registerFunction', () => {
     runtime.registerAction('a', handler)
     runtime.registerFunction('greaterThan10', (n: unknown) => (n as number) > 10)
 
-    runtime.addRule({
-      id: 'r1',
+    runtime.addTrigger({
+      id: 't1',
       event: { type: 'e' },
       conditions: {
         type: 'and',
@@ -149,8 +149,8 @@ describe('createRuntime - continueOnError', () => {
     runtime.registerAction('fail', failing)
     runtime.registerAction('after', after)
 
-    runtime.addRule({
-      id: 'r1',
+    runtime.addTrigger({
+      id: 't1',
       event: { type: 'e' },
       actions: [{ type: 'fail' }, { type: 'after' }]
     })
@@ -172,8 +172,8 @@ describe('createRuntime - continueOnError', () => {
     runtime.registerAction('fail', failing)
     runtime.registerAction('after', after)
 
-    runtime.addRule({
-      id: 'r1',
+    runtime.addTrigger({
+      id: 't1',
       event: { type: 'e' },
       actions: [{ type: 'fail' }, { type: 'after' }]
     })

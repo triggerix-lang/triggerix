@@ -24,23 +24,23 @@ import {
 import { generateValueSchema } from './valueSchema'
 
 /**
- * Generate the complete JSON Schema for a Triggerix Rule
+ * Generate the complete JSON Schema for a Triggerix Trigger
  */
-export function generateRuleSchema(): JSONSchema {
+export function generateTriggerSchema(): JSONSchema {
   return {
     $schema: 'http://json-schema.org/draft-07/schema#',
-    $id: 'https://triggerix.dev/schema/rule.json',
-    title: 'Triggerix Rule',
-    description: 'A language-agnostic trigger rule: Event → Condition → Action',
+    $id: 'https://triggerix.dev/schema/trigger.json',
+    title: 'Triggerix Trigger',
+    description: 'A language-agnostic ECA trigger: Event → Condition → Action',
     type: 'object',
     properties: {
       id: {
         type: 'string',
-        description: 'Unique rule identifier'
+        description: 'Unique trigger identifier'
       },
       name: {
         type: 'string',
-        description: 'Human-readable rule name'
+        description: 'Human-readable trigger name'
       },
       event: { $ref: '#/definitions/Event' },
       conditions: { $ref: '#/definitions/ConditionGroup' },

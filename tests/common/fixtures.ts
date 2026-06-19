@@ -1,4 +1,4 @@
-import type { Action, Condition, ConditionGroup, Event, Rule } from '@triggerix/core'
+import type { Action, Condition, ConditionGroup, Event, Trigger } from '@triggerix/core'
 
 /**
  * Valid Event fixture
@@ -31,11 +31,11 @@ export const validAction: Action = {
 }
 
 /**
- * Valid Rule fixture
+ * Valid Trigger fixture
  */
-export const validRule: Rule = {
-  id: 'rule-1',
-  name: 'Test Rule',
+export const validTrigger: Trigger = {
+  id: 'trigger-1',
+  name: 'Test Trigger',
   event: validEvent,
   conditions: validConditionGroup,
   actions: [validAction]

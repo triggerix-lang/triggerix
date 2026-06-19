@@ -1,4 +1,4 @@
-import type { Rule } from '@triggerix/core'
+import type { Trigger } from '@triggerix/core'
 import type { FunctionRegistry } from './expressionEvaluator'
 import type { ActionHandler, RuntimeContext, RuntimeOptions } from './types'
 import { ActionRegistry } from './actionRegistry'
@@ -21,17 +21,17 @@ export interface TriggerixRuntime {
   registerAction: (type: string, handler: ActionHandler) => void
 
   /**
-   * Add a rule to the runtime
+   * Add a trigger to the runtime
    */
-  addRule: (rule: Rule) => void
+  addTrigger: (trigger: Trigger) => void
 
   /**
-   * Remove a rule by id
+   * Remove a trigger by id
    */
-  removeRule: (id: string) => void
+  removeTrigger: (id: string) => void
 
   /**
-   * Emit an event - triggers matching rules
+   * Emit an event - triggers matching triggers
    */
   emit: (type: string, payload?: Record<string, unknown>) => Promise<void>
 
@@ -51,9 +51,9 @@ export interface TriggerixRuntime {
   registerFunction: (name: string, fn: (...args: unknown[]) => unknown) => void
 
   /**
-   * Get all added rules
+   * Get all added triggers
    */
-  listRules: () => Rule[]
+  listTriggers: () => Trigger[]
 }
 
 /**
@@ -62,7 +62,7 @@ export interface TriggerixRuntime {
 export function createRuntime(options: RuntimeOptions = {}): TriggerixRuntime {
   const eventRegistry = new EventRegistry()
   const actionRegistry = new ActionRegistry()
-  const rules: Rule[] = []
+  const triggers: Trigger[] = []
   const functions: FunctionRegistry = new Map()
 
   const { continueOnError = false } = options
@@ -79,34 +79,34 @@ export function createRuntime(options: RuntimeOptions = {}): TriggerixRuntime {
     functions.set(name, fn)
   }
 
-  function addRule(rule: Rule): void {
-    rules.push(rule)
+  function addTrigger(trigger: Trigger): void {
+    triggers.push(trigger)
   }
 
-  function removeRule(id: string): void {
-    const index = rules.findIndex(r => r.id === id)
+  function removeTrigger(id: string): void {
+    const index = triggers.findIndex(t => t.id === id)
     if (index !== -1) {
-      rules.splice(index, 1)
+      triggers.splice(index, 1)
     }
   }
 
   async function emit(type: string, payload?: Record<string, unknown>): Promise<void> {
-    // Find matching rules
-    const matchingRules = rules.filter((rule) => {
+    // Find matching triggers
+    const matchingTriggers = triggers.filter((trigger) => {
       // Match event type
-      if (rule.event.type !== type)
+      if (trigger.event.type !== type)
         return false
 
       // Match event source if specified
-      if (rule.event.source) {
+      if (trigger.event.source) {
         // Source matching can be extended
       }
 
       return true
     })
 
-    // Execute matching rules
-    for (const rule of matchingRules) {
+    // Execute matching triggers
+    for (const trigger of matchingTriggers) {
       const context: RuntimeContext = {
         event: { type, payload },
         payload,
@@ -114,14 +114,14 @@ export function createRuntime(options: RuntimeOptions = {}): TriggerixRuntime {
       }
 
       // Evaluate conditions
-      if (rule.conditions) {
-        const passed = evaluateConditionGroup(rule.conditions, context, functions)
+      if (trigger.conditions) {
+        const passed = evaluateConditionGroup(trigger.conditions, context, functions)
         if (!passed)
           continue
       }
 
       // Execute actions
-      for (const action of rule.actions) {
+      for (const action of trigger.actions) {
         try {
           await executeActionNode(action, context, actionRegistry, functions)
         }
@@ -138,11 +138,11 @@ export function createRuntime(options: RuntimeOptions = {}): TriggerixRuntime {
     registerEvent,
     registerAction,
     registerFunction,
-    addRule,
-    removeRule,
+    addTrigger,
+    removeTrigger,
     emit,
     listEvents: () => eventRegistry.list(),
     listActions: () => actionRegistry.list(),
-    listRules: () => [...rules]
+    listTriggers: () => [...triggers]
   }
 }

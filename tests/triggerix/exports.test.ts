@@ -14,8 +14,8 @@ describe('@triggerix/triggerix aggregate exports', () => {
   })
 
   describe('re-exports from @triggerix/schema', () => {
-    it('should expose defineRule', () => {
-      expect(typeof triggerix.defineRule).toBe('function')
+    it('should expose defineTrigger', () => {
+      expect(typeof triggerix.defineTrigger).toBe('function')
     })
 
     it('should expose defineAction', () => {
@@ -36,8 +36,8 @@ describe('@triggerix/triggerix aggregate exports', () => {
   })
 
   describe('re-exports from @triggerix/validator', () => {
-    it('should expose validateRule', () => {
-      expect(typeof triggerix.validateRule).toBe('function')
+    it('should expose validateTrigger', () => {
+      expect(typeof triggerix.validateTrigger).toBe('function')
     })
 
     it('should expose validateCondition', () => {
@@ -60,8 +60,8 @@ describe('@triggerix/triggerix aggregate exports', () => {
   })
 
   describe('re-exports from @triggerix/json-schema', () => {
-    it('should expose generateRuleSchema', () => {
-      expect(typeof triggerix.generateRuleSchema).toBe('function')
+    it('should expose generateTriggerSchema', () => {
+      expect(typeof triggerix.generateTriggerSchema).toBe('function')
     })
   })
 })

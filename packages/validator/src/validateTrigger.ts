@@ -5,33 +5,33 @@ import { validateConditionGroup } from './validateCondition'
 import { validateEvent } from './validateEvent'
 
 /**
- * Validate a complete rule
+ * Validate a complete trigger
  */
-export function validateRule(rule: unknown): ValidationResult {
+export function validateTrigger(trigger: unknown): ValidationResult {
   const errors = []
 
-  if (!rule || typeof rule !== 'object') {
-    return invalidResult([createError('rule', 'Rule must be an object')])
+  if (!trigger || typeof trigger !== 'object') {
+    return invalidResult([createError('trigger', 'Trigger must be an object')])
   }
 
-  const r = rule as Record<string, unknown>
+  const r = trigger as Record<string, unknown>
 
   // Validate id
   if (!r.id || typeof r.id !== 'string') {
-    errors.push(createError('rule.id', 'Rule must have a non-empty string id'))
+    errors.push(createError('trigger.id', 'Trigger must have a non-empty string id'))
   }
 
   // Validate name (optional)
   if (r.name !== undefined && typeof r.name !== 'string') {
-    errors.push(createError('rule.name', 'Rule name must be a string'))
+    errors.push(createError('trigger.name', 'Trigger name must be a string'))
   }
 
   // Validate event
   if (!r.event) {
-    errors.push(createError('rule.event', 'Rule must have an event'))
+    errors.push(createError('trigger.event', 'Trigger must have an event'))
   }
   else {
-    const eventResult = validateEvent(r.event, 'rule.event')
+    const eventResult = validateEvent(r.event, 'trigger.event')
     if (!eventResult.valid) {
       errors.push(...eventResult.errors)
     }
@@ -39,7 +39,7 @@ export function validateRule(rule: unknown): ValidationResult {
 
   // Validate conditions (optional)
   if (r.conditions !== undefined) {
-    const condResult = validateConditionGroup(r.conditions, 'rule.conditions')
+    const condResult = validateConditionGroup(r.conditions, 'trigger.conditions')
     if (!condResult.valid) {
       errors.push(...condResult.errors)
     }
@@ -47,14 +47,14 @@ export function validateRule(rule: unknown): ValidationResult {
 
   // Validate actions
   if (!Array.isArray(r.actions)) {
-    errors.push(createError('rule.actions', 'Rule must have an actions array'))
+    errors.push(createError('trigger.actions', 'Trigger must have an actions array'))
   }
   else if (r.actions.length === 0) {
-    errors.push(createError('rule.actions', 'Rule must have at least one action'))
+    errors.push(createError('trigger.actions', 'Trigger must have at least one action'))
   }
   else {
     for (let i = 0; i < r.actions.length; i++) {
-      const actionResult = validateActionNode(r.actions[i], `rule.actions[${i}]`)
+      const actionResult = validateActionNode(r.actions[i], `trigger.actions[${i}]`)
       if (!actionResult.valid) {
         errors.push(...actionResult.errors)
       }

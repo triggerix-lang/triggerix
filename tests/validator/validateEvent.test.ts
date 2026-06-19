@@ -71,9 +71,9 @@ describe('validateEvent', () => {
     })
 
     it('should respect custom path', () => {
-      const result = validateEvent(null, 'rule.event')
+      const result = validateEvent(null, 'trigger.event')
       expect(result.valid).toBe(false)
-      expect(result.errors[0].path).toBe('rule.event')
+      expect(result.errors[0].path).toBe('trigger.event')
     })
   })
 })

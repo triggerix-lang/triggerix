@@ -24,6 +24,6 @@ export {
   generateActionSequenceSchema,
   generateActionTryCatchSchema
 } from './flowSchema'
-export { generateRuleSchema } from './ruleSchema'
+export { generateTriggerSchema } from './triggerSchema'
 export type { JSONSchema } from './types'
 export { generateValueSchema } from './valueSchema'

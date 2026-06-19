@@ -1,4 +1,4 @@
-import type { Rule } from '@triggerix/core'
+import type { Trigger } from '@triggerix/core'
 
 /**
  * Common interface for all editor implementations.
@@ -8,8 +8,8 @@ export interface Editor<TState = unknown> {
   getState: () => TState
   /** Subscribe to state changes */
   onChange: (listener: () => void) => () => void
-  /** Serialize to Rule JSON */
-  toRule: (ruleId?: string) => Rule
+  /** Serialize to Trigger JSON */
+  toTrigger: (triggerId?: string) => Trigger
   /** Reset editor state */
   reset: () => void
   /** Dispose and release resources */

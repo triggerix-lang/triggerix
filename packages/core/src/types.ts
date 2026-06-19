@@ -106,10 +106,10 @@ export interface Action {
 }
 
 /**
- * Rule - the top-level construct
+ * Trigger - the top-level construct
  * Event → Condition → Action
  */
-export interface Rule {
+export interface Trigger {
   id: string
   name?: string
   event: Event

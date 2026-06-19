@@ -1,7 +1,7 @@
 export { defineAction } from './defineAction'
 export { defineCondition, defineConditionGroup } from './defineCondition'
 export { defineEvent } from './defineEvent'
-export { defineRule } from './defineRule'
+export { defineTrigger } from './defineTrigger'
 export { binary, call, concat, expr, exprCompare, logical, ternary, unary } from './expr'
 export { actionIf, parallel, sequence, tryCatch } from './flow'
 export { ref } from './ref'

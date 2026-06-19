@@ -1,8 +1,8 @@
-import { generateRuleSchema } from '@triggerix/json-schema'
+import { generateTriggerSchema } from '@triggerix/json-schema'
 import { describe, expect, it } from 'vitest'
 
-describe('generateRuleSchema', () => {
-  const schema = generateRuleSchema()
+describe('generateTriggerSchema', () => {
+  const schema = generateTriggerSchema()
 
   describe('top-level metadata', () => {
     it('should include $schema field', () => {
@@ -10,11 +10,11 @@ describe('generateRuleSchema', () => {
     })
 
     it('should include $id field', () => {
-      expect(schema.$id).toBe('https://triggerix.dev/schema/rule.json')
+      expect(schema.$id).toBe('https://triggerix.dev/schema/trigger.json')
     })
 
     it('should include title field', () => {
-      expect(schema.title).toBe('Triggerix Rule')
+      expect(schema.title).toBe('Triggerix Trigger')
     })
 
     it('should include description field', () => {

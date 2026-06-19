@@ -3,7 +3,7 @@ import {
   defineCondition,
   defineConditionGroup,
   defineEvent,
-  defineRule
+  defineTrigger
 } from '@triggerix/schema'
 import { describe, expect, it } from 'vitest'
 import {
@@ -11,7 +11,7 @@ import {
   validCondition,
   validConditionGroup,
   validEvent,
-  validRule
+  validTrigger
 } from '../common/fixtures'
 
 describe('define helpers', () => {
@@ -31,7 +31,7 @@ describe('define helpers', () => {
     expect(defineAction(validAction)).toBe(validAction)
   })
 
-  it('defineRule returns the input as-is', () => {
-    expect(defineRule(validRule)).toBe(validRule)
+  it('defineTrigger returns the input as-is', () => {
+    expect(defineTrigger(validTrigger)).toBe(validTrigger)
   })
 })
