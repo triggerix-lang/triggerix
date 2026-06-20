@@ -1,3 +1,6 @@
+minimumReleaseAgeExclude:
+  - '@types/node'
+
 shellEmulator: true
 
 trustPolicy: no-downgrade
