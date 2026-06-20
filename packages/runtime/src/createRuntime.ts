@@ -72,7 +72,7 @@ export function createRuntime(options: RuntimeOptions = {}): TriggerixRuntime {
   const triggers: Trigger[] = []
   const functions: FunctionRegistry = new Map()
 
-  const { continueOnError = false } = options
+  const { continueOnError = false, refResolver } = options
 
   function registerEvent(type: string): void {
     eventRegistry.register({ type })
@@ -137,7 +137,7 @@ export function createRuntime(options: RuntimeOptions = {}): TriggerixRuntime {
       // Execute actions
       for (const action of trigger.actions) {
         try {
-          await executeActionNode(action, context, actionRegistry, functions)
+          await executeActionNode(action, context, actionRegistry, functions, refResolver)
         }
         catch (error) {
           if (!continueOnError) {

@@ -1,4 +1,5 @@
 import type { Event, Value } from '@triggerix/core'
+import type { RefResolver } from './utils'
 
 /**
  * Event handler function type
@@ -7,6 +8,11 @@ export type EventHandler = (payload?: Record<string, unknown>) => void
 
 /**
  * Action handler function type
+ *
+ * The `params` received here are the **resolved** action parameters — every
+ * `{ $ref: '...' }` has been replaced with the value returned by the
+ * `refResolver` supplied to `createRuntime`. Handlers therefore work with
+ * plain values and never need to know about the `$ref` syntax.
  */
 export type ActionHandler = (params?: Record<string, Value>) => void | Promise<void>
 
@@ -48,4 +54,18 @@ export interface RuntimeOptions {
    * @default false
    */
   continueOnError?: boolean
+
+  /**
+   * Resolver for `$ref` references inside action parameters, conditions and
+   * expressions. When supplied, every `{ $ref: 'name.path' }` encountered
+   * during execution is replaced with `resolver('name.path')` before reaching
+   * the action handler.
+   *
+   * If omitted, `$ref` is left untouched (legacy behaviour).
+   *
+   * Concrete renderers provide an implementation that knows how to look up
+   * the referenced value (e.g. read `.value` from a DOM input element by
+   * component instance name).
+   */
+  refResolver?: RefResolver
 }
